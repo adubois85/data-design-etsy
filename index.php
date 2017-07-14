@@ -63,8 +63,18 @@
 						<li>With all necessary fields filled out, the previously greyed out button to list her item is
 							now active.</li>
 						<li>Eliane clicks on the button to list her item.</li>
-						<li>The browser sends the in the various fields </li>
+						<li>The browser sends the information of the various fields to the server.</li>
+						<li>The server creates an entry for a new listing.</li>
+						<li>The server then popultates that entry with attributes according to the information uploaded
+							in the various fields.</li>
+						<li>When it completes the entry in the database, it returns Elaine's personal profile page along
+							with a message that the item was successfully listed.</li>
+						<li>The brower displays Elains personal profile page with a small pop-up that indicates a
+							successful posting.</li>
+						<li>Elaine may now click the button to log out, continue browsing the website for other items she
+							may be interested in, or click on the new listing button to start this process over again.</li>
 					</ol>
+
 		<h1>Interaction Flow</h1>
 
 		<h1>Conceptual Model</h1>

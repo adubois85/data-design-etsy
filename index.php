@@ -20,5 +20,11 @@
 				time, and much of that goes to her jewelry-making hobby.  She want things to just work so she doesn't
 				have to waste her valuable time troubleshooting issues.
 			</p>
+			<p>
+				Her goal with using this site is quite simple: she wants to be able quickly and easily list for sale items
+				that she has made.  Then, when those items sell, she wants the profits from the sale to be securely
+				transferred into her bank account.
+			</p>
+		<h1></h1>
 	</body>
 </html>

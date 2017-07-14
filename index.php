@@ -25,6 +25,22 @@
 				that she has made.  Then, when those items sell, she wants the profits from the sale to be securely
 				transferred into her bank account.
 			</p>
-		<h1></h1>
+		<h1>Use Case</h1>
+			<header>Elaine wishes to sell an item on the site</header>
+				<ol>
+					<li>Elaine enters the url of the site in her preferred browser.</li>
+					<li>The website delivers its homepage to her browser, which it loads.</li>
+					<li>Elaine clicks on the sign in button and enters her credentials into the fields.</li>
+					<li>The website checks her credentials against those on file.</li>
+					<li>When it sees the correct information, it sends her phone a two-factor authentication code and
+						her browser a page requesting she enter the code.</li>
+					<li>Elaine checks her phone for the code and enters it into the box in her browser.</li>
+					<li>The website again checks that code entered is correct, then returns her personal profile page.</li>
+					<li></li>
+				</ol>
+		<h1>Interaction Flow</h1>
+
+		<h1>Conceptual Model</h1>
+
 	</body>
 </html>

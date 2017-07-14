@@ -26,7 +26,15 @@
 				transferred into her bank account.
 			</p>
 		<h1>Use Case</h1>
-			<!--<header>[TODO: add stuff]</header>-->
+			<p>
+				Elaine finished a new piece a few weeks back, but hasn't had the time or attention to spare to sell it as
+				the past few weeks have been hectic with projects at school.  In the scant free time she has had, she
+				wrote a description for the item and began planning her next piece.
+			</p>
+			<p>
+				Finally, she has completed her midterms and has a brief respite before her classes start to load up her
+				schedule again.  Tonight she will be meeting with her friends for some drinks to commiserate about
+			</p>
 
 		<h1>Interaction Flow</h1>
 			<header>Elaine wishes to sell an item on the site.</header>

@@ -27,17 +27,44 @@
 			</p>
 		<h1>Use Case</h1>
 			<header>Elaine wishes to sell an item on the site</header>
-				<ol>
-					<li>Elaine enters the url of the site in her preferred browser.</li>
-					<li>The website delivers its homepage to her browser, which it loads.</li>
-					<li>Elaine clicks on the sign in button and enters her credentials into the fields.</li>
-					<li>The website checks her credentials against those on file.</li>
-					<li>When it sees the correct information, it sends her phone a two-factor authentication code and
-						her browser a page requesting she enter the code.</li>
-					<li>Elaine checks her phone for the code and enters it into the box in her browser.</li>
-					<li>The website again checks that code entered is correct, then returns her personal profile page.</li>
-					<li></li>
-				</ol>
+
+				<h2>Logging in</h2>
+					<ol>
+						<li>Elaine enters the url of the site in her preferred browser.</li>
+						<li>The website delivers its homepage to her browser, which it loads.</li>
+						<li>Elaine clicks on the sign in button and enters her credentials into the fields.</li>
+						<li>The website checks her credentials against those on file.</li>
+						<li>When it sees the correct information, it sends her phone a two-factor authentication code and
+							her browser a page requesting she enter the code.</li>
+						<li>Elaine checks her phone for the code and enters it into the box in her browser.</li>
+						<li>The website again checks that code entered is correct, then returns her personal profile page.</li>
+					</ol>
+
+				<h2>Listing an item for sale</h2>
+					<ol>
+						<li>From her profile page, she navigates to the button for a new listing and clicks it.</li>
+						<li>The server processes her request and returns a listing page with blank fields.</li>
+						<li>Elaine switches over to a text editor where she had prepared the items description previously
+							.</li>
+						<li>She selects all of the text, copies it to her clipboard, switches back to the website page.</li>
+						<li>She focuses the text box for the main item description, then pastes the text in.</li>
+						<li>Elaine clicks on the button to add photographs to her listing.</li>
+						<li>The browser interprets this request and brings up a file system prompt for selecting a
+							photograph on her computer's hard drive.</li>
+						<li>Elaine navigates her computer's file system until she finds the photos she wants to list,
+							highlights the first one, then selects it.</li>
+						<li>The browser closes the prompt and instructs the server to begin uploading the file Elaine had
+							selected.</li>
+						<li>Elaine repeats the previous four steps as needed until she has either uploaded all of the
+							photographs she wishes to use for this listing or hits a limit on the size or number of files
+							imposed by the server.</li>
+						<li>Elaine completes her item listing by choosing options from drop-down lists, checkboxes, radio
+							buttons, and form fields about her item (e.g. number of items, price).</li>
+						<li>With all necessary fields filled out, the previously greyed out button to list her item is
+							now active.</li>
+						<li>Eliane clicks on the button to list her item.</li>
+						<li>The browser sends the in the various fields </li>
+					</ol>
 		<h1>Interaction Flow</h1>
 
 		<h1>Conceptual Model</h1>

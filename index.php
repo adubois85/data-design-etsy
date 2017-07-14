@@ -26,7 +26,7 @@
 				transferred into her bank account.
 			</p>
 		<h1>Use Case</h1>
-			<header>Elaine wishes to sell an item on the site</header>
+			<header>Elaine wishes to sell an item on the site.</header>
 
 				<h2>Logging in</h2>
 					<ol>
@@ -78,6 +78,11 @@
 		<h1>Interaction Flow</h1>
 
 		<h1>Conceptual Model</h1>
-
+			<h3>Types of relations and their use in our example</h3>
+				<ol>
+					<li>One-to-one: [TODO: add stuff]</li>
+					<li>One-to-many: [TODO: add stuff]</li>
+					<li>Many-to-many: [TODO:add stuff]</li>
+				</ol>
 	</body>
 </html>

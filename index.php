@@ -14,7 +14,11 @@
 				simple way to sell what she creates.
 			</p>
 			<p>
-
+				Her main method of staying connected with the world is her previous model-year 13" Macbook Pro.  However,
+				she also has an iPhone 7 that she mostly uses for checking on the status of her friends, sending quick
+				messages, and taking photographs.  School keeps her quite busy these days, so she doesn't have much free
+				time, and much of that goes to her jewelry-making hobby.  She want things to just work so she doesn't
+				have to waste her valuable time troubleshooting issues.
 			</p>
 	</body>
 </html>

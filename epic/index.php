@@ -33,7 +33,14 @@
 			</p>
 			<p>
 				Finally, she has completed her midterms and has a brief respite before her classes start to load up her
-				schedule again.  Tonight she will be meeting with her friends for some drinks to commiserate about
+				schedule again.  Tonight she will be meeting with her friends for some drinks to commiserate about their
+				respective classes and tests.
+			</p>
+			<p>
+				She wants to quickly post the item she made to the website so she has time to get ready for the evening
+				ahead.  Furthermore, since it is likely to be sold after her classes start up again in earnest, she
+				doesn't want to have to deal with all of the back-end minutia (such as payment processing); simply, she
+				wants to sell the item, put a name an address on a box, and then send it.
 			</p>
 
 		<h1>Interaction Flow</h1>

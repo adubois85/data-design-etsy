@@ -45,7 +45,7 @@
 
 		<h1>Interaction Flow</h1>
 			<header>Elaine wishes to sell an item on the site.</header>
-			<h2>Logging in</h2>
+				<h2>Logging in</h2>
 				<ol>
 					<li>Elaine enters the url of the site in her preferred browser.</li>
 					<li>The website delivers its homepage to her browser, which it loads.</li>
@@ -94,10 +94,30 @@
 
 		<h1>Conceptual Model</h1>
 			<h2>Types of relations and their use in our example</h2>
-				<ol>
-					<li>One-to-one: Elaine's profile and her handle, her profile and profile picture</li>
-					<li>One-to-many: Elaine's profile and her listings, a listing and its photographs</li>
-					<li>Many-to-many: Listings and buyers</li>
-				</ol>
+				<ul>
+					<h3>Profile</h3>
+					<li>profileId (primary key)</li>
+					<li>profileAtHandle</li>
+					<li>profilePhoneNumber</li>
+					<li>profileEmail</li>
+					<li>profileLocation</li>
+					<li>profileHash (password)</li>
+					<li>profileSalt(password)</li>
+				</ul>
+				<ul>
+					<h3>Listing</h3>
+					<li>listingId (primary key)</li>
+					<li>listingProfileId (foreign key)</li>
+					<li>listingContent</li>
+					<li>listingDate</li>
+					<li>listingNumberOfItems</li>
+				</ul>
+				<ul>
+					<h3>Photos</h3>
+					<li>photoId (primary key)</li>
+					<li>photoListingId (foreign key)</li>
+					<li>photoProfileId (foreign key)</li>
+					<li>photoDate</li>
+				</ul>
 	</body>
 </html>

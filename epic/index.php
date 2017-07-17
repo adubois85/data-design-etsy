@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8" />
 		<title>A Lesson in Data Design</title>
 	</head>
 	<body>
@@ -94,8 +94,8 @@
 
 		<h1>Conceptual Model</h1>
 			<h2>Types of relations and their use in our example</h2>
+				<h3>Profile</h3>
 				<ul>
-					<h3>Profile</h3>
 					<li>profileId (primary key)</li>
 					<li>profileAtHandle</li>
 					<li>profilePhoneNumber</li>
@@ -103,16 +103,16 @@
 					<li>profileHash (password)</li>
 					<li>profileSalt(password)</li>
 				</ul>
+				<h3>Listing</h3>
 				<ul>
-					<h3>Listing</h3>
 					<li>listingId (primary key)</li>
 					<li>listingProfileId (foreign key)</li>
 					<li>listingContent</li>
 					<li>listingDate</li>
 					<li>listingNumberOfItems</li>
 				</ul>
+				<h3>Photos</h3>
 				<ul>
-					<h3>Photos</h3>
 					<li>photoListingId (foreign key)</li>
 					<li>photoProfileId (foreign key)</li>
 					<li>photoDate</li>

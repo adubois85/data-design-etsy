@@ -100,7 +100,6 @@
 					<li>profileAtHandle</li>
 					<li>profilePhoneNumber</li>
 					<li>profileEmail</li>
-					<li>profileLocation</li>
 					<li>profileHash (password)</li>
 					<li>profileSalt(password)</li>
 				</ul>
@@ -114,10 +113,16 @@
 				</ul>
 				<ul>
 					<h3>Photos</h3>
-					<li>photoId (primary key)</li>
 					<li>photoListingId (foreign key)</li>
 					<li>photoProfileId (foreign key)</li>
 					<li>photoDate</li>
+				</ul>
+			<h2>Relations</h2>
+				<ul>
+					<li>one <em>Handle</em> may have one <em>Profile</em>. (1-to-1)</li>
+					<li>one <em>Profile</em> may have many <em>Listings</em>. (1-to-n)</li>
+					<li>one <em>Listing</em> may have many <em>Photos</em>. (m-to-n)</li>
+					<li>many <em>Profiles</em> may buy many <em>Listings</em>. (m-to-n)</li>
 				</ul>
 	</body>
 </html>

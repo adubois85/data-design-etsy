@@ -119,7 +119,6 @@
 				</ul>
 			<h2>Relations</h2>
 				<ul>
-					<li>one <em>Handle</em> may have one <em>Profile</em>. (1-to-1)</li>
 					<li>one <em>Profile</em> may have many <em>Listings</em>. (1-to-n)</li>
 					<li>one <em>Listing</em> may have many <em>Photos</em>. (1-to-n)</li>
 					<li>many <em>Profiles</em> may buy many <em>Listings</em>. (m-to-n)</li>

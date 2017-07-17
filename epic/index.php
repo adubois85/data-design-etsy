@@ -95,9 +95,9 @@
 		<h1>Conceptual Model</h1>
 			<h2>Types of relations and their use in our example</h2>
 				<ol>
-					<!--<li>One-to-one: [TODO: add stuff]</li>
-					<li>One-to-many: [TODO: add stuff]</li>
-					<li>Many-to-many: [TODO:add stuff]</li> -->
+					<li>One-to-one: Elaine's profile and her handle, her profile and profile picture</li>
+					<li>One-to-many: Elaine's profile and her listings, a listing and its photographs</li>
+					<li>Many-to-many: Listings and buyers</li>
 				</ol>
 	</body>
 </html>

@@ -16,6 +16,7 @@ CREATE TABLE listing (
 	listingContent VARCHAR(5000) NOT NULL,
 	listingDate DATETIME(6) NOT NULL,
 	listingNumberOfItems INT UNSIGNED NOT NULL,
+	UNIQUE(listingId),
 	FOREIGN KEY(listingProfileId) REFERENCES profile(profileId),
 	PRIMARY KEY (listingId)
 );

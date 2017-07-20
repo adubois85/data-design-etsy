@@ -31,12 +31,12 @@ CREATE TABLE photos (
 );
 
 CREATE TABLE bought (
-	boughtListingId INT UNSIGNED NOT NULL,
 	boughtBuyerId INT UNSIGNED NOT NULL,
+	boughtListingId INT UNSIGNED NOT NULL,
 	boughtSellerId INT UNSIGNED NOT NULL,
 	boughtDate DATETIME(6) NOT NULL,
 	FOREIGN KEY(boughtListingId) REFERENCES listing(listingId),
 	FOREIGN KEY(boughtBuyerId) REFERENCES profile(profileId),
 	FOREIGN KEY(boughtSellerId) REFERENCES profile(profileId),
-	PRIMARY KEY(boughtListingId, boughtBuyerId, boughtSellerId)
+	PRIMARY KEY(boughtBuyerId, boughtListingId, boughtSellerId)
 );

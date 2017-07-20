@@ -27,4 +27,7 @@ DELETE FROM listing WHERE SUM(boughtDate - listingDate) < 100000;
 
 SELECT listingId, listingProfileId, listingContent
 FROM listing
-WHERE listingContent LIKE "%cool stuff%" AND ;
+WHERE listingContent LIKE "%cool stuff%" AND listingNumberOfItems > 0;
+
+UPDATE listing SET listingNumberOfItems = "10"
+WHERE listingContext LIKE %good things% OR profileEmail LIKE "%gmail.com";

@@ -71,6 +71,20 @@ class Profile {
 	public getProfileEmail() {
 		return($this->profileEmail);
 	}
+	/**
+	 *Mutator method to alter profile's e-mail address
+	 *
+	 * @param string $newEmailAddress sets new value of e-mail address
+	 *
+	 **/
+	public setProfileEmail($newEmailAddress) {
+		//sanitize and validate the entered e-mail
+		$cleanedEmail = filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL);
+		if ($newEmailAddress !=== $cleanedEmail && filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL)) {
+			throw (new \Exception("The e-mail entered is not valid");
+		}
+		return ($cleanedEmail);
+	}
 
 };
 

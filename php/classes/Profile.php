@@ -11,6 +11,9 @@ namespace php\classes;
  * @version 0.1
  **/
 class Profile {
+	public function __construct() {
+	}
+
 	/**
 	 * The ID for this profile; Primary Key
 	 **/
@@ -47,10 +50,9 @@ class Profile {
 	 *Mutator method to alter profile's ID
 	 *
 	 * @param int $newProfileId sets new value of profile ID
-	 * @throws an exception if the parameter is not an integer
-	 * @throws an exception if the parameter is an integer < 1
+	 * @throws \RangeException if the parameter is an integer less than 1
 	 **/
-	public function setProfileId(int $newProfileId) : void {
+	public function setProfileId(?int $newProfileId) : void {
 		//if ID is null, return it immediately
 		if ($newProfileId === null) {
 			$this->profileId = null;
@@ -76,7 +78,7 @@ class Profile {
 	 *Mutator method to alter profile's handle
 	 *
 	 * @param string $newAtHandle sets new value of profile handle
-	 * @throws exception if $newAtHandle contains no valid characters
+	 * @throws \InvalidArgumentException if $newAtHandle contains no valid characters
 	 **/
 	public function setAtHandle($newAtHandle) {
 		//sanitize and trim the new handle
@@ -95,19 +97,19 @@ class Profile {
 	 *Accessor method to retreive profile Phone Number
 	 *
 	 * @return int value of associated profilePhoneNumber
-	 * @throws an exception if there is no valid phone number associated with the profileId
+	 * @throws \InvalidArgumentException if there is no valid phone number associated with the profileId
 	 **/
 	public function getProfilePhoneNUmber() {
 		if($this->profilePhoneNumber === NULL) {
-			throw(new \("There is no phone number associated with this account."));
+			throw(new \InvalidArgumentException("There is no phone number associated with this account."));
 		}
 		return($this->profilePhoneNumber);
 	}
 	/**
 	 *Mutator method to alter profile's phone number
 	 *
-	 * @param string $newEmailAddress sets new value of e-mail address
-	 * @throws an exception if the
+	 * @param int $newPhoneNumber sets new value of Phone Number
+	 * @throws \RangeException if entered value is larger than 12
 	 **/
 	public function setProfilePhoneNumber(?int $newPhoneNumber) : int {
 	//validate the entered phone number isn't too long
@@ -130,13 +132,13 @@ class Profile {
 	 *Mutator method to alter profile's e-mail address
 	 *
 	 * @param string $newEmailAddress sets new value of e-mail address
-	 * @throws an exception if the e-mail is not valid for any reason
+	 * @throws \InvalidArgumentException if the e-mail is not valid for any reason
 	 **/
 	public function setProfileEmail($newEmailAddress) {
 		//sanitize and validate the entered e-mail
 		$cleanedEmail = filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL);
-		if ($newEmailAddress !=== $cleanedEmail && filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL)) {
-			throw (new \InvalidArgumentException("The e-mail entered is not valid");
+		if ($newEmailAddress !== $cleanedEmail && filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL)) {
+			throw (new \InvalidArgumentException("The e-mail entered is not valid"));
 		}
 		$this->profileEmail = $cleanedEmail;
 	}

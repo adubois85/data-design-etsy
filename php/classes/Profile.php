@@ -79,8 +79,12 @@ class Profile {
 		$newAtHandle = filter_var($newAtHandle, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES,
 		FILTER_FLAG_STRIP_BACKTICK);
 		if(empty($newAtHandle) === true) {
-			throw(new \InvalidArgumentException(""))
+			throw(new \InvalidArgumentException("There are no valid characters in the entered handle."));
 		}
+		if (strlen($newAtHandle) > 32) {
+			throw(new \RangeException("The entered handle is too long."));
+		}
+		$this->profileAtHandle = $newAtHandle;====================
 	}
 	/**
 	 *Accessor method to retreive profile Phone Number
@@ -126,7 +130,41 @@ class Profile {
 		}
 		return ($cleanedEmail);
 	}
+	/**
+	 *Accessor method to retreive profile hash
+	 *
+	 * @return int value of associated profileHash
+	 **/
+	public function getProfileHash() {
+		return($this->profileHash);
+	}
+	/**
+	 *Mutator method to alter profile's hash
+	 *
+	 * @param string $newProfileHash sets new value of profileHash
+	 * @throws an exception if the hash is not the correct length or type
+	 **/
+	public function setProfileHash($newProfileHash) {
+		//sanitize and validate the entered hash
+		[TODO:code for mutating hash]
 
+	/**
+	 *Accessor method to retreive profile salt
+	 *
+	 * @return int value of associated profileSalt
+	 **/
+	public function getProfileSalt() {
+		return($this->profileSalt);
+	}
+		/**
+		 *Mutator method to alter profile's salt
+		 *
+		 * @param string $newProfileSalt sets new value of profile's salt
+		 * @throws an exception if the salt is not the correct length or type
+		 **/
+	public function setProfileSalt($newProfileSalt) {
+			//sanitize and validate the entered salt
+			[TODO:code for mutating salt]
 };
 
 ?>

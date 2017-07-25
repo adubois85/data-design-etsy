@@ -3,8 +3,8 @@ CREATE TABLE profile (
 	profileAtHandle VARCHAR(32) NOT NULL,
 	profilePhoneNumber VARCHAR(12),
 	profileEmail VARCHAR(64) NOT NULL,
-	profileHash CHAR(128),
-	profileSalt CHAR(32),
+	profileHash CHAR(128) NOT NULL,
+	profileSalt CHAR(32) NOT NULL,
 	UNIQUE(profileAtHandle),
 	UNIQUE(profileEmail),
 	PRIMARY KEY(profileId)

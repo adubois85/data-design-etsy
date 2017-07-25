@@ -128,7 +128,7 @@ class Profile {
 		if ($newEmailAddress !=== $cleanedEmail && filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL)) {
 			throw (new \InvalidArgumentException("The e-mail entered is not valid");
 		}
-		return ($cleanedEmail);
+		$this->profileEmail = $cleanedEmail;
 	}
 	/**
 	 *Accessor method to retreive profile hash
@@ -144,9 +144,13 @@ class Profile {
 	 * @param string $newProfileHash sets new value of profileHash
 	 * @throws an exception if the hash is not the correct length or type
 	 **/
-	public function setProfileHash($newProfileHash) {
+	public function setProfileHash(?string $newProfileHash) {
 		//sanitize and validate the entered hash
-		[TODO:code for mutating hash]
+		$cleanedHash = filter_var($newProfileHash, FILTER_SANITIZE_STRING);
+		if (strlen($cleanedHash) !== 132) {
+			throw (new \RangeException("The entered hash is not the correct length."))
+		}
+		$this->profileHash = $cleanedHash;
 	}
 
 	/**

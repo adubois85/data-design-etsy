@@ -84,7 +84,7 @@ class Profile {
 		if (strlen($newAtHandle) > 32) {
 			throw(new \RangeException("The entered handle is too long."));
 		}
-		$this->profileAtHandle = $newAtHandle;====================
+		$this->profileAtHandle = $newAtHandle;
 	}
 	/**
 	 *Accessor method to retreive profile Phone Number
@@ -94,7 +94,7 @@ class Profile {
 	 **/
 	public function getProfilePhoneNUmber() {
 		if($this->profilePhoneNumber === NULL) {
-			throw(new \Exception("There is no phone number associated with this account."));
+			throw(new \("There is no phone number associated with this account."));
 		}
 		return($this->profilePhoneNumber);
 	}
@@ -147,6 +147,7 @@ class Profile {
 	public function setProfileHash($newProfileHash) {
 		//sanitize and validate the entered hash
 		[TODO:code for mutating hash]
+	}
 
 	/**
 	 *Accessor method to retreive profile salt
@@ -154,8 +155,8 @@ class Profile {
 	 * @return int value of associated profileSalt
 	 **/
 	public function getProfileSalt() {
-		return($this->profileSalt);
-	}
+			return ($this->profileSalt);
+		}
 		/**
 		 *Mutator method to alter profile's salt
 		 *
@@ -165,6 +166,7 @@ class Profile {
 	public function setProfileSalt($newProfileSalt) {
 			//sanitize and validate the entered salt
 			[TODO:code for mutating salt]
-};
+	}
+}
 
 ?>

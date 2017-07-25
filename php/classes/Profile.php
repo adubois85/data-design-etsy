@@ -11,8 +11,21 @@ namespace php\classes;
  * @version 0.1
  **/
 class Profile {
-	public function __construct() {
+	public function __construct($profileId, $profileAtHandle, $profilePhoneNumber, $profileEmail, $profileHash,
+										 $profileSalt) {
+		$this->profileId = $profileId;
+		$this->profileAtHandle = $profileAtHandle;
+		$this->profilePhoneNumber = $profilePhoneNumber;
+		$this->profileEmail = $profileEmail;
+		$this->profileHash = $profileHash;
+		$this->profileSalt = $profileSalt;
 	}
+//	try {
+//
+//	} catch () {
+//
+//	}
+}
 
 	/**
 	 * The ID for this profile; Primary Key

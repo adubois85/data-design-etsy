@@ -51,7 +51,12 @@ class Profile {
 	 * @throws an exception if the parameter is an integer < 1
 	 **/
 	public function setProfileId(int $newProfileId) : void {
-	//check if input is greater than 0
+		//if ID is null, return it immediately
+		if ($newProfileId === null) {
+			$this->profileId = null;
+			return;
+		}
+		//check if input is greater than 0
 		if($newProfileId < 1) {
 			throw(new \RangeException("Profile ID is not a positive integer"));
 		}
@@ -104,9 +109,14 @@ class Profile {
 	 * @param string $newEmailAddress sets new value of e-mail address
 	 * @throws an exception if the
 	 **/
-	public function setProfilePhoneNumber($newPhoneNumber) {
-	//sanitize and validate the entered phone number
-		[TODO:code for mutating phone number]
+	public function setProfilePhoneNumber(?int $newPhoneNumber) : int {
+	//validate the entered phone number isn't too long
+		$cleanedPhoneNumber = filter_var($newPhoneNumber, FILTER_SANITIZE_NUMBER_INT);
+		if (strlen($cleanedPhoneNumber) > 12 ) {
+			throw (new \RangeException("The entered number is too long."));
+		}
+		$this->profilePhoneNumber = $cleanedPhoneNumber;
+
 	}
 	/**
 	 *Accessor method to retreive profile's e-mail address
@@ -142,13 +152,13 @@ class Profile {
 	 *Mutator method to alter profile's hash
 	 *
 	 * @param string $newProfileHash sets new value of profileHash
-	 * @throws an exception if the hash is not the correct length or type
+	 * @throws \RangeException if the hash is not the correct length or type
 	 **/
-	public function setProfileHash(?string $newProfileHash) {
+	public function setProfileHash(?string $newProfileHash) : string {
 		//sanitize and validate the entered hash
 		$cleanedHash = filter_var($newProfileHash, FILTER_SANITIZE_STRING);
-		if (strlen($cleanedHash) !== 132) {
-			throw (new \RangeException("The entered hash is not the correct length."))
+		if (strlen($cleanedHash) !== 128) {
+			throw (new \RangeException("The entered hash is not the correct length."));
 		}
 		$this->profileHash = $cleanedHash;
 	}
@@ -165,11 +175,15 @@ class Profile {
 		 *Mutator method to alter profile's salt
 		 *
 		 * @param string $newProfileSalt sets new value of profile's salt
-		 * @throws an exception if the salt is not the correct length or type
+		 * @throws \RangeException if the salt is not the correct length or type
 		 **/
-	public function setProfileSalt($newProfileSalt) {
-			//sanitize and validate the entered salt
-			[TODO:code for mutating salt]
+	public function setProfileSalt(?string $newProfileSalt) : string {
+		//sanitize and validate the entered salt
+		$cleanedSalt = filter_var($newProfileSalt, FILTER_SANITIZE_STRING);
+		if (strlen($cleanedSalt) !== 32) {
+			throw (new \RangeException("The entered salt is not the correct length."));
+		}
+		$this->profileSalt = $newProfileSalt;
 	}
 }
 

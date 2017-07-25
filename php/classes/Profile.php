@@ -14,33 +14,33 @@ class Profile {
 	/**
 	 * The ID for this profile; Primary Key
 	 **/
-	private profileId;
+	private $profileId;
 	/**
 	 * The user-friendly profile name; must be unique
 	 **/
-	private profileAtHandle;
+	private $profileAtHandle;
 	/**
 	 * The user's phone number
 	 **/
-	private profilePhoneNumber;
+	private $profilePhoneNumber;
 	 /**
 	 * The user's e-mail address; must be unique
 	 **/
-	private profileEmail;
+	private $profileEmail;
 	 /**
 	 * The Hash value of the user's password
 	 **/
-	private profileHash;
+	private $profileHash;
 	/**
 	 * The Salt applied before hashing a user's password
 	 **/
-	private profileSalt;
+	private $profileSalt;
 	/**
 	 *Accessor method to retreive profile ID
 	 *
 	 * @return int value of associated profileId
 	 **/
-	public getProfileId() {
+	public function getProfileId() {
 		return($this->profileId);
 	}
 	/**
@@ -50,8 +50,8 @@ class Profile {
 	 * @throws an exception if the parameter is not an integer
 	 * @throws an exception if the parameter is an integer < 1
 	 **/
-	public setProfileId(int $newProfileId) : void {
-	//sanitize and validate the entered phone number
+	public function setProfileId(int $newProfileId) : void {
+	//check if input is greater than 0
 		if($newProfileId < 1) {
 			throw(new \RangeException("Profile ID is not a positive integer"));
 		}
@@ -63,30 +63,32 @@ class Profile {
  	*
  	* @return string value of associated profileAtHandle
  	**/
-	public getProfileAtHandle() {
+	public function getProfileAtHandle() {
 		return($this->profileAtHandle);
 	}
 
-		/**
-		 *Mutator method to alter profile's handle
-		 *
-		 * @param string $newAtHandle sets new value of profile handle
-		 * @throws
-		 **/
-		public setAtHandle($newAtHandle) {
-		//sanitize and validate the entered phone number
-
+	/**
+	 *Mutator method to alter profile's handle
+	 *
+	 * @param string $newAtHandle sets new value of profile handle
+	 * @throws exception if $newAtHandle contains no valid characters
+	 **/
+	public function setAtHandle($newAtHandle) {
+		//sanitize and trim the new handle
+		$newAtHandle = trim($newAtHandle);
+		$newAtHandle = filter_var($newAtHandle, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES,
+		FILTER_FLAG_STRIP_BACKTICK);
+		if(empty($newAtHandle) === true) {
+			throw(new \InvalidArgumentException(""))
 		}
-
-
-
+	}
 	/**
 	 *Accessor method to retreive profile Phone Number
 	 *
 	 * @return int value of associated profilePhoneNumber
 	 * @throws an exception if there is no valid phone number associated with the profileId
 	 **/
-	public getProfilePhoneNUmber() {
+	public function getProfilePhoneNUmber() {
 		if($this->profilePhoneNumber === NULL) {
 			throw(new \Exception("There is no phone number associated with this account."));
 		}
@@ -98,7 +100,7 @@ class Profile {
 	 * @param string $newEmailAddress sets new value of e-mail address
 	 * @throws an exception if the
 	 **/
-	public setProfilePhoneNumber($newPhoneNumber) {
+	public function setProfilePhoneNumber($newPhoneNumber) {
 	//sanitize and validate the entered phone number
 		[TODO:code for mutating phone number]
 	}
@@ -107,7 +109,7 @@ class Profile {
 	 *
 	 * @return string value of associated profileEmail
 	 **/
-	public getProfileEmail() {
+	public function getProfileEmail() {
 		return($this->profileEmail);
 	}
 	/**
@@ -116,7 +118,7 @@ class Profile {
 	 * @param string $newEmailAddress sets new value of e-mail address
 	 * @throws an exception if the e-mail is not valid for any reason
 	 **/
-	public setProfileEmail($newEmailAddress) {
+	public function setProfileEmail($newEmailAddress) {
 		//sanitize and validate the entered e-mail
 		$cleanedEmail = filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL);
 		if ($newEmailAddress !=== $cleanedEmail && filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL)) {

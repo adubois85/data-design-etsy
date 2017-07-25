@@ -23,11 +23,11 @@ class Profile {
 	 * The user's phone number
 	 **/
 	private profilePhoneNumber;
-	/**
+	 /**
 	 * The user's e-mail address; must be unique
 	 **/
 	private profileEmail;
-	/**
+	 /**
 	 * The Hash value of the user's password
 	 **/
 	private profileHash;
@@ -44,6 +44,18 @@ class Profile {
 		return($this->profileId);
 	}
 	/**
+	 *Mutator method to alter profile's ID
+	 *
+	 * @param int $newProfileId sets new value of profile ID
+	 * @throws an exception if the parameter is not an integer
+	 * @throws an exception if the parameter is an integer < 1
+	 **/
+	public setProfileId($newProfileId) {
+	//sanitize and validate the entered phone number
+	[TODO:code for mutating the profile ID]
+	}
+
+	/**
  	*Accessor method to retreive profile's handle
  	*
  	* @return string value of associated profileAtHandle
@@ -51,6 +63,21 @@ class Profile {
 	public getProfileAtHandle() {
 		return($this->profileAtHandle);
 	}
+
+		/**
+		 *Mutator method to alter profile's handle
+		 *
+		 * @param string $newAtHandle sets new value of profile handle
+		 * @throws an exception if the parameter is not an integer
+		 * @throws an exception if the parameter is an integer < 1
+		 **/
+		public setAtHandle($newAtHandle) {
+		//sanitize and validate the entered phone number
+
+		}
+
+
+
 	/**
 	 *Accessor method to retreive profile Phone Number
 	 *
@@ -64,6 +91,16 @@ class Profile {
 		return($this->profilePhoneNumber);
 	}
 	/**
+	 *Mutator method to alter profile's phone number
+	 *
+	 * @param string $newEmailAddress sets new value of e-mail address
+	 * @throws an exception if the
+	 **/
+	public setProfilePhoneNumber($newPhoneNumber) {
+	//sanitize and validate the entered phone number
+		[TODO:code for mutating phone number]
+	}
+	/**
 	 *Accessor method to retreive profile's e-mail address
 	 *
 	 * @return string value of associated profileEmail
@@ -75,7 +112,7 @@ class Profile {
 	 *Mutator method to alter profile's e-mail address
 	 *
 	 * @param string $newEmailAddress sets new value of e-mail address
-	 *
+	 * @throws an exception if the
 	 **/
 	public setProfileEmail($newEmailAddress) {
 		//sanitize and validate the entered e-mail

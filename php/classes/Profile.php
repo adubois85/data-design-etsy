@@ -25,7 +25,7 @@ class Profile {
 //	} catch () {
 //
 //	}
-}
+//}
 
 	/**
 	 * The ID for this profile; Primary Key

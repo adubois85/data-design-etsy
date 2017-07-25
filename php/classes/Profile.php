@@ -126,7 +126,7 @@ class Profile {
 		//sanitize and validate the entered e-mail
 		$cleanedEmail = filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL);
 		if ($newEmailAddress !=== $cleanedEmail && filter_var($newEmailAddress, FILTER_SANITIZE_EMAIL)) {
-			throw (new \Exception("The e-mail entered is not valid");
+			throw (new \InvalidArgumentException("The e-mail entered is not valid");
 		}
 		return ($cleanedEmail);
 	}

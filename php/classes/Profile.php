@@ -50,9 +50,12 @@ class Profile {
 	 * @throws an exception if the parameter is not an integer
 	 * @throws an exception if the parameter is an integer < 1
 	 **/
-	public setProfileId($newProfileId) {
+	public setProfileId(int $newProfileId) : void {
 	//sanitize and validate the entered phone number
-	[TODO:code for mutating the profile ID]
+		if($newProfileId < 1) {
+			throw(new \RangeException("Profile ID is not a positive integer"));
+		}
+		$this->profileId = $newProfileId;
 	}
 
 	/**
@@ -68,8 +71,7 @@ class Profile {
 		 *Mutator method to alter profile's handle
 		 *
 		 * @param string $newAtHandle sets new value of profile handle
-		 * @throws an exception if the parameter is not an integer
-		 * @throws an exception if the parameter is an integer < 1
+		 * @throws
 		 **/
 		public setAtHandle($newAtHandle) {
 		//sanitize and validate the entered phone number
@@ -112,7 +114,7 @@ class Profile {
 	 *Mutator method to alter profile's e-mail address
 	 *
 	 * @param string $newEmailAddress sets new value of e-mail address
-	 * @throws an exception if the
+	 * @throws an exception if the e-mail is not valid for any reason
 	 **/
 	public setProfileEmail($newEmailAddress) {
 		//sanitize and validate the entered e-mail

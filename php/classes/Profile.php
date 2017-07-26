@@ -11,8 +11,7 @@ namespace Edu\Cnm\adubois2\DataDesignEtsy;
  * @version 0.1
  **/
 class Profile {
-	public function __construct($profileId, $profileAtHandle, $profilePhoneNumber, $profileEmail, $profileHash,
-										 $profileSalt) {
+	public function __construct($profileId, $profileAtHandle, $profilePhoneNumber, $profileEmail, $profileHash, $profileSalt) {
 		try {
 			$this->setProfileId($profileId);
 			$this->setProfileAtHandle($profileAtHandle);
@@ -200,6 +199,24 @@ class Profile {
 			throw (new \RangeException("The entered salt is not the correct length."));
 		}
 		$this->profileSalt = $newProfileSalt;
+	}
+
+	/**
+	 * Method to insert our variables into a Database
+	 *
+	 *
+	 */
+	public function insert(\PDO $pdoInsert) {
+		//might need to check if ID exists
+		$queryInsert = "INSERT INTO profile(profileAtHandle, profilePhoneNumber, profileEmail, profileHash, profileSalt) VALUES (:profileAtHandle, :profilePhoneNumber, :profileEmail, :profileHash, :profileSalt)";
+		$preppedInsert = $pdoInsert->prepare($queryInsert);
+
+		//We must sub out the placeholders before submitting to the database
+		$parameters = ["profileAtHandle" => $this->profileAtHandle, "profilePhoneNumber" => $this->profilePhoneNumber, "profileEmail" => $this->profileEmail, "profileHash" => $this->profileHash, "profileSalt" => $this->profileSalt];
+		$preppedInsert->execute($parameters);
+
+		//We don't want to add the profile ID directly with the INSERT statement, so we add it here
+		$this->profileId = intval($pdoInsert->lastInsertId());
 	}
 }
 

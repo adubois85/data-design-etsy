@@ -11,22 +11,6 @@ namespace Edu\Cnm\adubois2\DataDesignEtsy;
  * @version 0.1
  **/
 class Profile {
-	public function __construct($profileId, $profileAtHandle, $profilePhoneNumber, $profileEmail, $profileHash, $profileSalt) {
-		try {
-			$this->setProfileId($profileId);
-			$this->setProfileAtHandle($profileAtHandle);
-			$this->setProfilePhoneNumber($profilePhoneNumber);
-			$this->setProfileEmail($profileEmail);
-			$this->setProfileHash($profileHash);
-			$this->setProfileSalt($profileSalt);
-		}
-		catch (\RangeException) | \InvalidArgumentException | \Exception $exception) {
-			$exceptionType = get_class($exception);
-			throw (new $exceptionType($exception->getMessage(), 0, $exception));
-		}
-	}
-
-
 	/**
 	 * The ID for this profile; Primary Key
 	 **/
@@ -51,6 +35,32 @@ class Profile {
 	 * The Salt applied before hashing a user's password
 	 **/
 	private $profileSalt;
+
+	/**
+	 * Profile constructor [TODO:Fill in details of doc bloc]
+	 * @param $profileId
+	 * @param $profileAtHandle
+	 * @param $profilePhoneNumber
+	 * @param $profileEmail
+	 * @param $profileHash
+	 * @param $profileSalt
+	 */
+
+	public function __construct($profileId, $profileAtHandle, $profilePhoneNumber, $profileEmail, $profileHash, $profileSalt) {
+		try {
+			$this->setProfileId($profileId);
+			$this->setProfileAtHandle($profileAtHandle);
+			$this->setProfilePhoneNumber($profilePhoneNumber);
+			$this->setProfileEmail($profileEmail);
+			$this->setProfileHash($profileHash);
+			$this->setProfileSalt($profileSalt);
+		}
+		catch (\RangeException) | \InvalidArgumentException | \Exception $exception) {
+			$exceptionType = get_class($exception);
+			throw (new $exceptionType($exception->getMessage(), 0, $exception));
+		}
+	}
+
 	/**
 	 *Accessor method to retreive profile ID
 	 *
@@ -96,8 +106,7 @@ class Profile {
 	public function setProfileAtHandle($newAtHandle) {
 		//sanitize and trim the new handle
 		$newAtHandle = trim($newAtHandle);
-		$newAtHandle = filter_var($newAtHandle, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES,
-		FILTER_FLAG_STRIP_BACKTICK);
+		$newAtHandle = filter_var($newAtHandle, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES | FILTER_FLAG_STRIP_BACKTICK);
 		if(empty($newAtHandle) === true) {
 			throw(new \InvalidArgumentException("There are no valid characters in the entered handle."));
 		}

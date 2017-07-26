@@ -1,5 +1,5 @@
 <?php
-namespace php\classes;
+namespace Edu\Cnm\adubois2\DataDesignEtsy;
 
 /**
  *Creating a Class for Profile

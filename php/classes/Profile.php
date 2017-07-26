@@ -13,19 +13,20 @@ namespace php\classes;
 class Profile {
 	public function __construct($profileId, $profileAtHandle, $profilePhoneNumber, $profileEmail, $profileHash,
 										 $profileSalt) {
-		$this->profileId = $profileId;
-		$this->profileAtHandle = $profileAtHandle;
-		$this->profilePhoneNumber = $profilePhoneNumber;
-		$this->profileEmail = $profileEmail;
-		$this->profileHash = $profileHash;
-		$this->profileSalt = $profileSalt;
+		try {
+			$this->setProfileId($profileId);
+			$this->setProfileAtHandle($profileAtHandle);
+			$this->setProfilePhoneNumber($profilePhoneNumber);
+			$this->setProfileEmail($profileEmail);
+			$this->setProfileHash($profileHash);
+			$this->setProfileSalt($profileSalt);
+		}
+		catch (\RangeException) | \InvalidArgumentException $exception) {
+			$exceptionType = get_class($exception);
+			throw (new $exceptionType($exception->getMessage(), 0, $exception));
+		}
 	}
-//	try {
-//
-//	} catch () {
-//
-//	}
-//}
+
 
 	/**
 	 * The ID for this profile; Primary Key
@@ -93,7 +94,7 @@ class Profile {
 	 * @param string $newAtHandle sets new value of profile handle
 	 * @throws \InvalidArgumentException if $newAtHandle contains no valid characters
 	 **/
-	public function setAtHandle($newAtHandle) {
+	public function setProfileAtHandle($newAtHandle) {
 		//sanitize and trim the new handle
 		$newAtHandle = trim($newAtHandle);
 		$newAtHandle = filter_var($newAtHandle, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES,

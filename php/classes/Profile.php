@@ -218,7 +218,7 @@ class Profile {
 	public function insert(\PDO $pdoInsert) {
 		//Need to check if profile ID is not null, that is it alredy exists
 		if ($this->profileId !== null) {
-			throw (new \PDOException("The profile ID is not new."))
+			throw (new \PDOException("The profile ID is not new."));
 		}
 		//prepping the command to be passed to the database
 		$queryInsert = "INSERT INTO profile(profileAtHandle, profilePhoneNumber, profileEmail, profileHash, profileSalt) VALUES (:profileAtHandle, :profilePhoneNumber, :profileEmail, :profileHash, :profileSalt)";
@@ -262,14 +262,14 @@ class Profile {
 	public function delete(\PDO $pdoDelete) {
 		//first check if the profile ID exists, i.e. not null
 		if ($this->profileId === null) {
-			throw (new \PDOException("Unable to delete a profile that does not exist.");
+			throw (new \PDOException("Unable to delete a profile that does not exist."));
 		}
 		//prepping the command to be passed to the database
 		$queryDelete = "DELETE FROM profile WHERE profileId = :profileId";
 		$preppedDelete = $pdoDelete->prepare($queryDelete);
 
 		//We must sub out the placeholder before submitting to the database
-		$parameters = [profileId => $this->profileId];
+		$parameters = ["profileId" => $this->profileId];
 		$preppedDelete->execute($parameters);
 	}
 }

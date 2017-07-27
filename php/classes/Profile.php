@@ -216,7 +216,10 @@ class Profile {
 	 *
 	 */
 	public function insert(\PDO $pdoInsert) {
-		//might need to check if ID exists
+		//Need to check if profile ID is not null, that is it alredy exists
+		if ($this->profileId !== null) {
+			throw (new \PDOException("The profile ID is not new."))
+		}
 		//prepping the command to be passed to the database
 		$queryInsert = "INSERT INTO profile(profileAtHandle, profilePhoneNumber, profileEmail, profileHash, profileSalt) VALUES (:profileAtHandle, :profilePhoneNumber, :profileEmail, :profileHash, :profileSalt)";
 		$preppedInsert = $pdoInsert->prepare($queryInsert);
@@ -249,8 +252,18 @@ class Profile {
 		$preppedUpdate->execute($parameters);
 	}
 
-	public function delete(\PDO $pdoDelete) {
+	/**
+	 * Method to delete a database entity based on profile ID
+	 *
+	 * @param \PDO $pdoDelete
+	 * [TODO: complete this doc bloc]
+	 */
 
+	public function delete(\PDO $pdoDelete) {
+		//first check if the profile ID exists, i.e. not null
+		if ($this->profileId === null) {
+			throw (new \PDOException("Unable to delete a profile that does not exist.");
+		}
 		//prepping the command to be passed to the database
 		$queryDelete = "DELETE FROM profile WHERE profileId = :profileId";
 		$preppedDelete = $pdoDelete->prepare($queryDelete);

@@ -248,6 +248,17 @@ class Profile {
 		$parameters = ["profileAtHandle" => $this->profileAtHandle, "profilePhoneNumber" => $this->profilePhoneNumber, "profileEmail" => $this->profileEmail, "profileHash" => $this->profileHash, "profileSalt" => $this->profileSalt];
 		$preppedUpdate->execute($parameters);
 	}
+
+	public function delete(\PDO $pdoDelete) {
+
+		//prepping the command to be passed to the database
+		$queryDelete = "DELETE FROM profile WHERE profileId = :profileId";
+		$preppedDelete = $pdoDelete->prepare($queryDelete);
+
+		//We must sub out the placeholder before submitting to the database
+		$parameters = [profileId => $this->profileId];
+		$preppedDelete->execute($parameters);
+	}
 }
 
 ?>

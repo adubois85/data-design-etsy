@@ -284,11 +284,11 @@ class Profile {
 	public function getProfileById(\PDO $pdoIdGet, ?int $profileId) {
 		//First check if $profileId is valid, that is not negative or zero
 		if($profileId < 1) {
-			throw (new \PDOException("The entered profile ID is not a postive integer."))
+			throw (new \PDOException("The entered profile ID is not a postive integer."));
 		}
 		//prepping the command to be passed to the database
 		$queryIdGet = "SELECT profileId, profileAtHandle, profilePhoneNumber, profileEmail, profileHash, profileSalt FROM profile WHERE profileId = :profileId";
-		$preppedIdGet = $pdoIdGet->prepare($queryIdGet)
+		$preppedIdGet = $pdoIdGet->prepare($queryIdGet);
 
 		//We must sub out the placeholder before submitting to the database
 		$parameters = ["profileId => $profileId"];

@@ -217,6 +217,7 @@ class Profile {
 	 */
 	public function insert(\PDO $pdoInsert) {
 		//might need to check if ID exists
+		//prepping the command to be passed to the database
 		$queryInsert = "INSERT INTO profile(profileAtHandle, profilePhoneNumber, profileEmail, profileHash, profileSalt) VALUES (:profileAtHandle, :profilePhoneNumber, :profileEmail, :profileHash, :profileSalt)";
 		$preppedInsert = $pdoInsert->prepare($queryInsert);
 
@@ -226,6 +227,26 @@ class Profile {
 
 		//We don't want to add the profile ID directly with the INSERT statement, so we add it here
 		$this->profileId = intval($pdoInsert->lastInsertId());
+	}
+
+	/**
+	 * Method to update a profile database entity by profile ID (the primary key)
+	 *
+	 * @param \PDO $pdoUpdate
+	 * [TODO: Complete this doc bloc]
+	 */
+	public function update(\PDO $pdoUpdate) {
+		//first check if the profile ID exists, i.e. not null
+		if ($this->profileId === null) {
+			throw (new \PDOException("Unable to update profile -- that profile ID does not exist."));
+		}
+		//prepping the command to be passed to the database
+		$queryUpdate = "UPDATE profile SET profileAtHandle = :profileAtHandle, profilePhoneNumber = :profilePhoneNumber, profileEmail = :profileEmail, profileHash = :profileHash, profileSalt = :profileSalt WHERE profileId = :profileId";
+		$preppedUpdate = $pdoUpdate->prepare($queryUpdate);
+
+		//We must sub out the placeholders before submitting to the database
+		$parameters = ["profileAtHandle" => $this->profileAtHandle, "profilePhoneNumber" => $this->profilePhoneNumber, "profileEmail" => $this->profileEmail, "profileHash" => $this->profileHash, "profileSalt" => $this->profileSalt];
+		$preppedUpdate->execute($parameters);
 	}
 }
 

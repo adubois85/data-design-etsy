@@ -228,7 +228,8 @@ class Profile {
 		$parameters = ["profileAtHandle" => $this->profileAtHandle, "profilePhoneNumber" => $this->profilePhoneNumber, "profileEmail" => $this->profileEmail, "profileHash" => $this->profileHash, "profileSalt" => $this->profileSalt];
 		$preppedInsert->execute($parameters);
 
-		//We don't want to add the profile ID directly with the INSERT statement, so we add it here
+		//We don't want to add the profile ID directly with the INSERT statement, so we add it here.  Also, it
+		// should've been null to this point, so now we set it
 		$this->profileId = intval($pdoInsert->lastInsertId());
 	}
 
@@ -271,6 +272,27 @@ class Profile {
 		//We must sub out the placeholder before submitting to the database
 		$parameters = ["profileId" => $this->profileId];
 		$preppedDelete->execute($parameters);
+	}
+
+	/**
+	 * Method to retrieve a profile by a given profile ID
+	 *
+	 * @param \PDO $pdoIdGet
+	 * @param int|null $profileId
+	 */
+
+	public function getProfileById(\PDO $pdoIdGet, ?int $profileId) {
+		//First check if $profileId is valid, that is not negative or zero
+		if($profileId < 1) {
+			throw (new \PDOException("The entered profile ID is not a postive integer."))
+		}
+		//prepping the command to be passed to the database
+		$queryIdGet = "SELECT profileId, profileAtHandle, profilePhoneNumber, profileEmail, profileHash, profileSalt FROM profile WHERE profileId = :profileId";
+		$preppedIdGet = $pdoIdGet->prepare($queryIdGet)
+
+		//We must sub out the placeholder before submitting to the database
+		$parameters = ["profileId => $profileId"];
+		$preppedIdGet->execute("$parameters");
 	}
 }
 

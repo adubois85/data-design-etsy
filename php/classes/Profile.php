@@ -55,7 +55,7 @@ class Profile {
 			$this->setProfileHash($profileHash);
 			$this->setProfileSalt($profileSalt);
 		}
-		catch (\RangeException) | \InvalidArgumentException | \Exception $exception) {
+		catch (\RangeException | \InvalidArgumentException | \Exception $exception) {
 			$exceptionType = get_class($exception);
 			throw (new $exceptionType($exception->getMessage(), 0, $exception));
 		}
